@@ -1,29 +1,43 @@
-<script>
-	import { creationDate } from '$lib/formatCreationDate';
+<script lang="ts">
+	import { database, type resultObject } from '$lib/database';
 	import Logo from '$lib/Logo.svelte';
 
-	let has_result = true;
+	let result: resultObject = {exists: false, secure: [], sus: [], not_secure: []};
+
+	function handleSubmit(event: SubmitEvent) {
+		const fd = new FormData(event.target as HTMLFormElement);
+        // check website
+        result = database["" + fd.get('site')] || null;
+	}
+
 </script>
 
 <main>
-    <!-- eu realmente queria poder testar o sveltekit pra isso, mas o tempo demanda gambiarra. -->
-    <!-- preciso dormir. -->
-	<form action="#" >
+	<!-- eu realmente queria poder testar o sveltekit pra isso, mas o tempo demanda gambiarra. -->
+	<!-- preciso dormir. -->
+	<form action="#" on:submit|preventDefault={handleSubmit}>
 		<Logo />
-		<input inputmode="url" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" name="site" id="site" />
+		<input
+			inputmode="url"
+			autocomplete="off"
+			autocorrect="off"
+			autocapitalize="off"
+			spellcheck="false"
+			name="site"
+			id="site"
+		/>
 		<button type="submit">Verificar</button>
 	</form>
 
-	{#if has_result}
+	{#if result?.exists}
 		<div class="result">
 			<section class="sub-result">
 				<h2>Seguro 🟢</h2>
 				<div class="subtitle">Pontos fortes do site buscado:</div>
 				<ul>
-					<li>Site ativo</li>
-					<li>Possui HTTPS</li>
-					<li>Criado em 06-10-1997 (9183 dias)</li>
-					<li>{creationDate(new Date(1997, 10 - 1, 6))}</li>
+					{#each result?.secure as item}
+                        <li>{item}</li>
+                    {/each}
 				</ul>
 			</section>
 
@@ -31,7 +45,9 @@
 				<h2>Suspeito 🟡</h2>
 				<div class="subtitle">Pontos suspeitos do site buscado:</div>
 				<ul>
-					<li>sus</li>
+					{#each result?.sus as item}
+                        <li>{item}</li>
+                    {/each}
 				</ul>
 			</section>
 
@@ -39,9 +55,16 @@
 				<h2>Não Seguro 🔴</h2>
 				<div class="subtitle">Pontos não seguros do site buscado:</div>
 				<ul>
-					<li>xii</li>
+					{#each result?.not_secure as item}
+                        <li>{item}</li>
+                    {/each}
 				</ul>
 			</section>
+		</div>
+	{/if}
+	{#if result === null}
+		<div class="noresult">
+			Não há informações sobre o site pesquisado. <br />Tente novamente.
 		</div>
 	{/if}
 </main>
@@ -81,7 +104,7 @@
 		padding: 0.4em;
 		font-size: 1.6em;
 		width: 100%;
-        max-width: 720px;
+		max-width: 720px;
 	}
 
 	button {
@@ -106,5 +129,14 @@
 
 	.result section:not(:last-child) {
 		margin-bottom: 2em;
+	}
+
+	.noresult {
+		background-color: rgba(144, 88, 255, 1);
+		color: white;
+		border-radius: 10px;
+		padding: 3em;
+		margin: 2em;
+		text-align: center;
 	}
 </style>
