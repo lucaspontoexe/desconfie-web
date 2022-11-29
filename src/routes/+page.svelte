@@ -4,9 +4,9 @@
 </script>
 
 <main>
-	<Logo />
-
-	<form action="result" method="post">
+    
+    <form action="result" method="post">
+        <Logo />
 		<input inputmode="url" name="site" id="site" />
 		<button type="submit">Verificar</button>
 	</form>
@@ -14,7 +14,7 @@
 	<div class="result">
 		<section>
 			<h2>Seguro 🟢</h2>
-			<div class="subitile">Pontos fortes do site buscado:</div>
+			<div class="subtitle">Pontos fortes do site buscado:</div>
 			<ul>
 				<li>Site ativo</li>
 				<li>Possui HTTPS</li>
@@ -25,7 +25,7 @@
 
 		<section>
 			<h2>Suspeito 🟡</h2>
-			<div class="subitile">Pontos suspeitos do site buscado:</div>
+			<div class="subtitle">Pontos suspeitos do site buscado:</div>
 			<ul>
 				<li>sus</li>
 			</ul>
@@ -33,7 +33,7 @@
 
 		<section>
 			<h2>Não Seguro 🔴</h2>
-			<div class="subitile">Pontos não seguros do site buscado:</div>
+			<div class="subtitle">Pontos não seguros do site buscado:</div>
 			<ul>
 				<li>xii</li>
 			</ul>
@@ -44,11 +44,7 @@
 <style>
 	main {
         position: relative;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: space-around;
-        min-height: 100vh;
+        display: block;
 	}
 
 	form {
@@ -74,7 +70,14 @@
 
 	button {
 		font-size: 1.6em;
-		height: 2em;
-		padding: 0.2rem;
+		padding: 0.5em 1em;
 	}
+
+    h2 {
+        margin-bottom: 0.6em;
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
+    }
 </style>

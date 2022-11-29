@@ -10,15 +10,16 @@
 
 <style>
 .logo {
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 8rem;
-    gap: 2em;
+    height: 100%;
+    gap: 10px;
 }
 
 h1 {
     font-family: 'Inter','Roboto', sans-serif;
-    font-size: 4rem;
+    font-size: 3rem;
 }
 </style>
