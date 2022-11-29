@@ -37,6 +37,13 @@ export const database: {[key: string]: resultObject} =
         secure: ["Site ativo", "Livre de malwares"],
         sus: ["Possíveis easter eggs"],
         not_secure: ["Possíveis gambiarras"]
-    }
+    },
+
+    "https://desconfie-site.vercel.app/": {
+        exists: true,
+        secure: ["Livre de malwares", "Site ativo", "Possui HTTPS"],
+        sus: [],
+        not_secure: []
+    },
 }
 
