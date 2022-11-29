@@ -30,6 +30,13 @@ export const database: {[key: string]: resultObject} =
         secure: ["Site ativo"],
         sus: ["Possível phishing"],
         not_secure: ["Possui malware (!)", creationDate(new Date(2022,7,12)), "Não possui HTTPS (Conexão Particular)"]
+    },
+
+    "https://lucasht.ml/": {
+        exists: true,
+        secure: ["Site ativo", "Livre de malwares"],
+        sus: ["Possíveis easter eggs"],
+        not_secure: ["Possíveis gambiarras"]
     }
 }
 
