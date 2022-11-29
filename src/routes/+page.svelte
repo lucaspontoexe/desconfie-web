@@ -1,4 +1,5 @@
 <script>
+	import { creationDate } from '$lib/formatCreationDate';
 	import Logo from '$lib/Logo.svelte';
 </script>
 
@@ -19,6 +20,7 @@
             <li>Site ativo</li>
             <li>Possui HTTPS</li>
             <li>Criado em 06-10-1997 (9183 dias)</li>
+            <li>{creationDate(new Date(1997,10-1,6))}</li>
         </ul>
     </section>
 
