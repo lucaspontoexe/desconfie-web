@@ -21,5 +21,6 @@
 h1 {
     font-family: 'Inter','Roboto', sans-serif;
     /* font-size: 3rem; */
+    color: rgba(144, 88, 255, 1);
 }
 </style>

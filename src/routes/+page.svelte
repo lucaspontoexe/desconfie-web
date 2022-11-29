@@ -4,9 +4,8 @@
 </script>
 
 <main>
-    
-    <form action="result" method="post">
-        <Logo />
+	<form action="result" method="post">
+		<Logo />
 		<input inputmode="url" name="site" id="site" />
 		<button type="submit">Verificar</button>
 	</form>
@@ -42,15 +41,21 @@
 </main>
 
 <style>
+	:global(body) {
+		background-color: rgb(222, 205, 255);
+	}
+
 	main {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+        justify-content: center;
+        min-height: 100vh;
 	}
 
 	form {
-        width: 90vw;
+		width: 90vw;
 		min-height: 48px;
 		display: flex;
 		flex-direction: column;
@@ -65,11 +70,11 @@
 		color: white;
 		background-color: rgba(144, 88, 255, 1);
 	}
-    
+
 	input {
-        padding: 0.4em;
+		padding: 0.4em;
 		font-size: 1.6em;
-        width: 100%;
+		width: 100%;
 	}
 
 	button {
@@ -77,22 +82,22 @@
 		padding: 0.5em 1em;
 	}
 
-    h2 {
-        margin-bottom: 0.6em;
-    }
+	h2 {
+		margin-bottom: 0.6em;
+	}
 
-    .subtitle {
-        font-size: 0.8rem;
-    }
+	.subtitle {
+		font-size: 0.8rem;
+	}
 
-    ul {
-        background-color: rgba(144, 88, 255, 1);
-        color: white;
-        padding: 2em;
-        border-radius: 10px;
-    }
+	ul {
+		background-color: rgba(144, 88, 255, 1);
+		color: white;
+		padding: 2em;
+		border-radius: 10px;
+	}
 
-    .result section:not(:last-child){
-        margin-bottom: 2em;
-    }
+	.result section:not(:last-child) {
+		margin-bottom: 2em;
+	}
 </style>
