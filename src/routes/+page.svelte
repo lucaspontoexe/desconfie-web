@@ -12,7 +12,7 @@
 	</form>
 
 	<div class="result">
-		<section>
+		<section class="sub-result">
 			<h2>Seguro 🟢</h2>
 			<div class="subtitle">Pontos fortes do site buscado:</div>
 			<ul>
@@ -23,7 +23,7 @@
 			</ul>
 		</section>
 
-		<section>
+		<section class="sub-result">
 			<h2>Suspeito 🟡</h2>
 			<div class="subtitle">Pontos suspeitos do site buscado:</div>
 			<ul>
@@ -31,7 +31,7 @@
 			</ul>
 		</section>
 
-		<section>
+		<section class="sub-result">
 			<h2>Não Seguro 🔴</h2>
 			<div class="subtitle">Pontos não seguros do site buscado:</div>
 			<ul>
@@ -44,10 +44,13 @@
 <style>
 	main {
         position: relative;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 	}
 
 	form {
+        width: 90vw;
 		min-height: 48px;
 		display: flex;
 		flex-direction: column;
@@ -62,10 +65,11 @@
 		color: white;
 		background-color: rgba(144, 88, 255, 1);
 	}
-
+    
 	input {
-		padding: 0.4em;
+        padding: 0.4em;
 		font-size: 1.6em;
+        width: 100%;
 	}
 
 	button {
@@ -79,5 +83,16 @@
 
     .subtitle {
         font-size: 0.8rem;
+    }
+
+    ul {
+        background-color: rgba(144, 88, 255, 1);
+        color: white;
+        padding: 2em;
+        border-radius: 10px;
+    }
+
+    .result section:not(:last-child){
+        margin-bottom: 2em;
     }
 </style>

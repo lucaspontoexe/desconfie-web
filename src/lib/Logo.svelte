@@ -14,12 +14,12 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 100%;
+    /* height: 100%; */
     gap: 10px;
 }
 
 h1 {
     font-family: 'Inter','Roboto', sans-serif;
-    font-size: 3rem;
+    /* font-size: 3rem; */
 }
 </style>
